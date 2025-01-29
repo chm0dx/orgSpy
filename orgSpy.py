@@ -16,11 +16,11 @@ class orgSpy():
 
         conn = sqlite3.connect("orgSpy.db")
         cursor = conn.cursor()
-        cursor.execute("SELECT * FROM slugs WHERE domain = ?", (self.domain,))
+        cursor.execute("SELECT slug FROM slugs WHERE domain = ?", (self.domain,))
         results = cursor.fetchall()
 
         if results:
-            name,slug,domain = results[0]
+            slug, = results[0]
             json_data = {
                 'variables': {
                     'slug': slug,
