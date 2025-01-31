@@ -91,11 +91,9 @@ if __name__ == "__main__":
                         if org_spy.descriptions:
                             if person.get("description"):
                                 desc = textwrap.fill(person.get('description').replace('\n',''), width=shutil.get_terminal_size()[0] - 50, initial_indent='', subsequent_indent='\t\t')
-                                print(f"\t\t{desc}\n")
-                            else:
-                                print()
+                                print(f"\t\t{desc}")
             else:
                 print("No matches :(")
-    
+            print()
     except Exception as ex:
         print(ex)
