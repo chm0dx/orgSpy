@@ -70,7 +70,8 @@ if __name__ == "__main__":
                 if results.get("company_name"):
                     print(f"\n{results.get('company_name')}")
                 if results.get("description"):
-                    print(f"\t{results.get('description')}")
+                    desc = textwrap.fill(results.get('description').replace('\n',''), width=shutil.get_terminal_size()[0] - 25, initial_indent='', subsequent_indent='\t')
+                    print(f"\t{desc}")
 
                 if results.get("domains"):
                     print(f"\nDOMAINS ({len(results.get('domains'))}):")
